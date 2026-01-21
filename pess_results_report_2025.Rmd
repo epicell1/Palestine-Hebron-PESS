@@ -1,0 +1,619 @@
+---
+title: "Patient Experience & Satisfaction Survey Report 2025"
+output:
+  word_document:
+    reference_docx: "C:/Users/msfe-jerusalem-epi/OneDrive - MSF/1_Epidemiology/5_Code/reference_style.docx"
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, results = 'show')
+
+source("C:/Users/msfe-jerusalem-epi/OneDrive - MSF/1_Epidemiology/3_Projects/11_PESS_2025/3_Code/pess_results_analysis_2025.R")
+```
+### July 2025
+
+
+# Introduction
+
+MSF-OCBA has been working in Hebron governorate since 1996 initially providing mental health (MH) care via a clinic in Hebron center, however, the activities have expanded as needs assessments indicate, and as of April 2025, MSF-OCBA is operating 17 MCs in communities in Hebron governorate with healthcare access challenges with focus on primary healthcare including medical, sexual and reproductive health (SRH), MH, health promotion (HP) and social work (SW).
+
+A first PESS was conducted in 2022 for patients enrolled in the MH program only, however, this PESS has not been conducted for all medical activities in the Hebron Project.
+
+A full PESS was conducted in 2024 “first round”, published in August 2024 for the period of June 2024, patients enrolled in the MH program that visited either the MH Clinic (MHPSSC) or the Mobile clinics (MC). However, the evaluation focused on the comparison between MHPSSC and MC and did not consider the MH services.
+
+This PESS 2025, “round 2", focuses exclusively on MH services in the Mental Health and Psychosocial Support Clinic, MHPSSC.
+
+The objective of the PESS is to understand the patient’s experiences and their level of satisfaction with the health care provided in MSF supported Mental Health clinic, in the frame of quality-of-care monitoring and continuous improvement in Hebron Governorate, Occupied Palestinian Territories (OPT) during May 2025.
+
+The specific objectives of the PESS are:
+
+•	To quantitatively measure the reported perception of MSF patients with regards to different dimensions of health care, including demographic data, for an accurate posterior analysis and report on: 1) Access to care; 2) Safety and security 3) Welcoming 4) Information and orientation at arrival; 5) Communication, engagement in care and respect; 6) Informed consent process and health care options; 7) Privacy, cleanliness and comfort; 8) Overall satisfaction.
+
+•	To identify areas of improvement and introduce an improvement cycle according to the collected answers.
+
+
+
+# Methods
+
+
+The survey population included all patients with a medical record that had a consultation with MSF at the MH clinic in Hebron with at least 1 encounter occurring in May 2025.
+
+
+**Inclusion Criteria**
+
+A person will be included in the study if s/he satisfies the following criteria:
+
+**(**
+
+- Has been seen or is being seen with a minimum of 1 consultation in the  MSF-OCBA MH clinic in Hebron governorate in May 2025
+
+**OR**
+
+- Is the caretaker of a patient aged <18 or the caretaker of a patient not able to respond (because of mental or physical disability) that has been seen with a minimum of 1 consultation in the  MSF-OCBA MH clinic in Hebron governorate in June 2025 **)**
+
+**AND**
+
+- Verbal Informed consent has been given and the patient/caretaker has willingly accepted to participate in the survey
+
+
+**Exclusion Criteria**
+
+Any person having one or more of the following criteria will be excluded from the survey: 
+
+- A patient (or caregiver) does not provide or is unable to provide verbal informed consent 
+
+**OR**
+
+- The patient (or caregiver) refuses to participate in the survey
+
+**OR**
+
+- The patient is deceased at the time of the survey 
+
+**OR**
+
+- The patient (or caregiver) does not have a valid telephone number available for contact.
+
+
+
+
+**Sample size**
+
+The sample size was calculated with the information that we have 168 patients (May 2025) with a written phone number.
+
+Based on this we calculated  with:
+
+   - Z value of 1.96 for 95% confidence level,
+
+   - CI, confidence interval of 0.06  (for +-6)
+
+   - Applied the correction for finite population Pop = 168
+
+   - using the tool (See   sample size calculations for PESS 2025.xlsx ) 
+, this resulted in new sample size newss = 103 
+ 
+Note: During the preparation we found that additionally 15 patients were not registered with correct phone numbers. The calculation of sample size was corrected with Pop = 153. this let to a sample size of newss = 97.
+
+To achieve the required sample size of 103 / or 97, based on the 2024 MHPSS PESS results, which had a non-participation rate of 20%, a sample of 125 was used to achieve a target sample of 100 survey responses. 
+
+Simple random sampling was used to identify the survey sample using a random sampling code written in R (see **Annex D**). 
+
+Of the 125 patients sampled, 95 patients were included in the survey. (see **Figure 1**).
+
+
+The patients or their caretakers were contacted via telephone, explained the purpose of the study, and asked to provide verbal consent to continue with the survey. A script for how informed verbal consent was requested can be found in **Annex B and Annex C**. Data was collected via Kobo and exported to R for analysis. Descriptive statistics were calculated to summarize the data, providing means, medians, and standard deviations as appropriate. Statistical tests for parametric data included ANOVA and the T-Test, while the Wilcoxon Sum Rank test was used for non-parametric data. For categorical comparisons, the Chi-Square Test and Fishers Exact Test were used. A p-value of less than 0.05 was considered statistically significant for all analyses.
+
+
+**Figure 1: Enrollment flowchart of participants in the Patient Experience and Satisfaction Survey 2025, Hebron, Palestine**
+
+
+
+![](C:/Users/msfe-jerusalem-epi/OneDrive - MSF/1_Epidemiology/3_Projects/11_PESS_2025/4_Results/patient_flowchart_image.jpg)
+
+
+
+
+# Results
+
+**Demographics**
+
+125 people were contacted to participate in the survey. Of those contacted, `r total` people were included in the survey. The most common reason for exclusion was no answer after 3 attempted phone calls, on different dates and times. 10 people contacted did not want to participate in the survey. Of the participants included in the survey, `r round(num_patient / total * 100, 0)`% (n = `r num_patient`, N = `r total`) were patients and `r round(num_caregiver / total * 100, 0)`%  were caregivers (n = `r num_caregiver`, N = `r total`) of a patient who was unable to participate in the survey independently. In cases where the patient was <18 years old or had a condition which prevented their ability to participate in the survey, the caregiver participated in the survey on behalf of the patient.
+
+The average age of patients receiving care was `r round(summary_stats_age$mean_value, 0)` with a range of `r summary_stats_age$min_value` to `r summary_stats_age$max_value` years. 62% of respondants (n = 59, N = 95)
+ were female and 37% (n = 35, N = 95) were male. For a complete summary of the age and sex distribution of patients, see **Figure 2**. 
+
+
+**Figure 2: Age and sex distribution of patients receiving MSF services, May 2025, Hebron, Palestine**
+
+```{r age_sex_plot}
+print(age_sex_plot)
+```
+
+**Services**
+
+Of the services offered by MSF during the patients' last visit in May 2025,  35% (n = 33, N = 94) received Counselling, 59% (n = 55, N = 94) received Psychological service, and 6% (n = 6, N = 94) received Psychiatry support. 
+
+see Note on MH_Services  in **Discussions**
+
+
+
+**Barriers to Healthcare**
+
+For patients receiving MSF services at the MH clinic location, the travel time and transportation mode is summarized in **Figure 3**. Minimum was on walking: only 1 patient reported and was walking 10 minutes. Patients utilizing a personal car or a taxi spent in average 23 or 27 minutes respectively. Patients utilizing public transit spent the most amount of time with an average of 28 minutes (min = 15, max = 155, std = 28) to arrive to the clinic location. 
+
+**Figure 3: Transportation method and the impact on travel time to the MH clinic, May 2025, Hebron, Palestine**
+
+```{r travel_time_plot, echo=FALSE}
+travel_time_plot <- boxplot(arrival_arrival_time ~ arrival_arrival_mode, data = transport_data,
+        xlab = "Transportation", ylab = "Travel time (minutes)")
+```
+
+
+
+
+20% of patients (n = 17, N = 85) reported needing to miss school, work, or other occupational commitments in order to receive their MSF services. 
+
+For summary of the age and sex distribution of people to miss school or work, see **Figure 4**. 
+
+
+**Figure 4: Age and sex distribution of patients who missed school or work, May 2025, Hebron, Palestine**
+
+```{r age_sex_plot_missed_school_work}
+print(age_sex_plot_missed_school_work)
+```
+
+
+31% of respondants (n = 27, N = 86) reported being stopped at a military checkpoint on route to the MHPSSC location for their most recent consultation. Such checkpoints would only be relevant for patients coming from Outside of Hebron (H1) to MHPSSC. Checkpoint presence also affected the travel time to the clinic location with patients stopped at checkpoints reporting an average of 60 minutes of travel time (min = 10, max = 170, std = 35) compared to patients not stopped a checkpoint who reported an average of 39 minutes of travel time (min = 10, max = 90, std = 24) (see **Figure 5**). The results are supported by Wilcox Rank Sum Test (W = 471, p-value = 0.004237) indicating a significant difference in travel times, with patients being stopped at a checkpoint reporting an average of 21 minutes more travel time than respondents who were not stopped at a checkpoint.
+
+**Figure 5: Checkpoint presence and the impact on travel time to MSF MHPSS clinic, May 2025, Hebron, Palestine**
+
+```{r cp_time_plot, echo=FALSE}
+cp_time_plot <- boxplot(time_yes_cp, time_no_cp,
+        names = c("Checkpoint", "No Checkpoint"),
+        ylab = "Arrival time (minutes)")
+```
+
+Another barrier to access to healthcare are intentional road blocks installed by military and/or settlers (including locked gates, concrete barricades, boulders) en route to the MHPSSC. 26% of respondants (n = 22, N = 86) reported having to take an alternate route to the MHPSSC during their previous consultation.
+
+Both checkpoints and road blocks have a significant impact on the travel time to the clinic location with patients *not* required to take an alternate route to the clinic location reporting an average of 39 minutes travel time (min = 10, max = 90, std = 25) and patients required to take an alternate route spending an average of 24 minutes more in travel time. 
+
+On the way to receiving MSF services, 15% of patients (n = 13, N = 84) reported experiencing violence from military personnel or settlers.   
+
+
+**Clinic Environment**
+
+
+10% (n = 9, N = 86) of patients Were not able to find the service location easily.
+
+At the clinic location, 12% (n = 10, N = 86) of patients reported physical difficulties navigating the clinical environment due to excessive stairs, inaccessible/ineffective elevators, or other factors limiting patient mobility. 
+
+In terms of orientation at the clinical location, 98% (n = 84, N = 86) of patients
+reported they were able to identify the location of the registration area. In terms of amenities at the clinic locations, 98% (n = 80) reported they were able to easily identify drinking water and toilet locations.
+
+At the clinic location, 80% (n = 60, N = 75) of patients reported seeing or receiving public health messaging such as hand-hygiene promotion. 
+
+Wait times at the clinic varied based on the **MH service**. Patients receiving counselling services reported an average of 4 minutes waiting time (min = 0, max = 10, std = 4), on psychology services an average of 6 minutes waiting time (min = 0, max = 60, std = 9), while for psychiatry services patients were reporting an average of 27 minutes waiting time (min = 0, max = 70, std = 31) (see **Figure 6**). The difference of average waiting time between psychology and psychiatry was 21 minutes. The special ANOVA test TukeyHSD shows that there are statistically significant differences in wait time for Psychiatry-Councelling (p-value = 0.0000162) and for Psychiatry-Psychology (p-value = 0.0000370). The results indicate that the services utilize different approaches to patient consultations. 
+
+**Figure 6: Wait times for patients receiving MH services in May 2025, Hebron, Palestine**
+
+```{r wait_time_plot, echo = FALSE}
+# Create a boxplot to present wait time at mh clinic vs MH services
+boxplot(visit_visit_wait_time ~ services_services_mh_services, data = wait_time_edit,
+        xlab = "MH Services", ylab = "Wait time (minutes)")
+```
+
+**Clinical Services**
+
+During the clinical consultation for patients at the MHPSSC, 80% (n = 60, N = 75) of patients reported having the consultation in an area with adequate privacy. 
+
+
+For patients receiving mental health care at their last consultation, N=86 answered on the multiple choice question "Based on your last visit, what was the outcome?" the following: 
+
+80% (n = 69, N = 86) reported receiving treatment (including behavioral or lifestyle treatments). 17% (n = 15, N = 86) reported receiving a diagnosis. 16% (n = 14, N = 86) reported receiving a referral for another service, within MSF (n = 11) or to the MOH (n = 3). Referral within MSF included (n = 7) referrals to the MSF social work service (within the same building). 6% (n = 5, N = 86) reported not having received any of the above.
+
+Note: (to discussion section?) In the MH clinic terms for outcome are not always clear to patients: 
+
+- diagnosis - which in oPt would be officially restricted to psychiatrist, 
+
+- treatment - which is also counselling or psychological session. 
+
+- "not having received any of the above could be interpreted as not having received medication. No patient reported not having visited the clinic.
+
+Of the patients receiving treatment, 86% (n = 6, N = 7) reported the healthcare worker did explain the prescribed treatment including the purpose, how to use, and side effects (if applicable).
+
+89% (n = 76, N = 85) of patients reported their healthcare worker did answer all questions they had regarding their healthcare concern(s).
+
+94% (n = 79, N = 84) reported they felt their healthcare worker understood their healthcare concerns .  
+
+
+**Safety and Security**
+
+2.3% (n = 2, N = 86) of patients reported feeling the service location facilities not comfortable while receiving services by MSF. They attributed this with 1 vote each to 3 factors:
+Uncomfortable temperature, Poor privacy, and the wish "prefer if there was a bed to lie on during the session because that gives me a greater feeling of comfort".
+
+9% (n = 8, N = 85) of patients reported not being able to freely express themselves during the visit. 
+ (Note: This seems to contradict the low number (n = 2) of patients stating for them the service location facilities were not comfortable.)
+
+
+No patients (n = 0, N = 85) reported having to pay or being asked for money for any of their MSF service visits. 
+
+
+**Mental Health**
+
+94% (n = 79, N = 84) of patients did feel considered / involved in the mental health session.
+
+For patients receiving mental health services, 92% (n = 78, N = 85) of respondents reported that the mental health services were helpful for addressing their mental health concerns. On the other hand: 7 respondents did not find the mental health sessions helpful to address their mental health concern. They explained their reason as in **Annex A**
+
+
+
+
+
+
+
+**Social Work**
+
+Only 3 patients reported receiving social work (SW) consultations during their last visit in May. 67% (n = 2, N = 3) of patients stated they were provided with sufficient information during their initial social work assessment by the Social Worker. 100% (n = 3, N = 3) of respondents stated their social work consultation occurred in a private location. 67% (n = 2, N = 3) of respondents stated that the social work services met their needs, and 67% (n = 2, N = 3) of respondents stated they were satisfied with their overall experience with the social work services. 
+
+1 respondent was not satisfied. 
+
+Improvements for SW were proposed as:
+
+- "I ordered custom shoes to fit my disability but they were not provided.", and 
+
+- "The service should be provided periodically and follow-up should be regular without the need to submit a request for assistance every period."
+
+
+**Overall Satisfaction**
+
+
+96% (n = 81, N = 84) of participants stated they were satisfied with their overall experience receiving services from MSF and 94% of respondents (n = 80, N = 85) stated they would return for services provided by MSF in the future, if needed. In addition, 97% (n = 83, N = 86) of participants would recommend MSF services to someone else. 
+
+**Patients' recommendations**
+
+20 patients provided additional comments about their experience with MSF or recommendations for MSF to improve services. These are listed in **Annex E** 
+
+# Discussion and Recommendations
+
+
+The results of PESS in overall satisfaction with the MH services (96%) and the willingness of 97% of patients to recommend MSF services indicates a high level of acceptance and trust in MSF. The fact that the figures are not 100% shows that the survey was done and received with a critical view. Even small deviations from full satisfaction are worth analyzing and may inspire for improvement.
+
+While PESS is established in MSF missions since many years, there are no valid comparisons for the Project Hebron, Palestine. The draft attempt in 2022 was not completed and the first round in 2024 did compare mobile clinics (MC) vs MHPSSC, focusing on access where the distinction of the various MC was not elaborated.
+
+**Note on MH Services:** This study undertakes to compare access to the 3 possible types of MH services, Counselling, Psychology, and Psychiatry. However, the definition of the service was not reported by the patient.  This information stems from the patient register / the HMIS database as defined by the MH service team.  Patients in contact to MH clinic being asked what service they used would usually reply for all "medical service". The PESS interviewer asked the patient to answer all questions related to the patient's  **latest visit** in the Month of May. When the interviews were made, between June 25 and July 10, it cannot be excluded that the patients referred to another of their visits. 
+These types of MH services are not labelled to the patients. Additionally, the services Counselling and Psychology are usually provided once per week, while Psychiatry is provided once per month. Thus, the number of services taken in a month is not used for PESS evaluation.
+
+Types of services:
+
+The question "Specify whether the mental health service was individual, family, or group session", would have allowed the patient to respond "group session". No patient replied this. The group sessions are not recorded as individual data. And in total in that period only 3 group sessions took place in MHPSSC (while 113 group sessions took place in the MC locations). 
+
+
+
+The primary challenge affecting patients are context-related barriers to healthcare including military checkpoints, roadblocks, and violence from armed groups and/or settlers. The presence of these barriers actively impact patient healthcare access by increasing the amount of time required to receive services. The presence of these barriers may be a factor influencing health-seeking behaviours and limiting the ability for MSF to provide services to beneficiary populations. The MHPSSC is located in Hebron, H1 area. Patients living within this city are not expected to face these barriers. But patients coming to the clinic from outside cities or villages might be subjected to the barriers. We did not analyse the origin of the respondents.
+
+
+
+
+Only few patients (n = 17) reported having to miss school or work in order to attend MSF services. Out of these were only 3 in school age (7 to 14 years), and among the adults were 50% (n = 7) female and 50% (n = 7) female. The low number of having to miss school or work could indicate that the service availability is not adequate for patients that are attending school, work, or other occupational requirements (e.g. farmers, family caregivers, etc.). It could also be attributed to the context with high level of unemployment.
+
+
+ 
+The significant differences between the mode of transportation could be analysed further. It is not considered a major obstacle.  Patients requiring the use of public transit required significantly more time than patients using a car of Taxi. This could indicate that transportation to the one MH clinic in Hebron City (H1) is frequently from outside of Hebron. The possibility of extension of MH services in the mobile clinic locations outside Hebron could be considered to reduce the burden of travel time for patients.
+
+The significant difference in waiting time could be due to different reasons. It could be discussed: the setup of the services, the triage system, the availability of psychiatrists, the management at psychiatry, or psychiatry-intrinsic reasons.
+
+Generally, the study found 
+Good medical practice.  
+
+
+
+
+**Recommendations**
+
+A) read the recommendations by the respondents in **Annex E**
+
+B) A presentation / workshop was held with the MH team. We discussed both recommendations known to the team beforehand and some of the suggestions made by the respondents (**Annex E**). 
+Recommendations both from the interviewed patients and from MSF staff are listed below.
+
+**Team reflections on patient feedback**
+
+- Access to the site could partially improved. Consider:
+   9 patients were not able to find the service location easily. 
+
+   CR shows no house number and no label outside of the building
+  
+   MSF services in CR are not clearly labelled outside of the doors in level 2 and level 3
+   
+-  physical difficulties
+    12% of patients reported physical difficulties on accessing the site. Unclear what could be improved here. The support for handicapped - mentioned by some patients - is already provided when the visit is planned / announced  beforehand.
+
+- **improvement of privacy**
+
+   This is the most frequent and dominant recommendation: please consider the visual and noise insulation of the rooms. Voices from consultation rooms should never be heard in waiting areas.
+   
+   The team suggested improving soundproofing in consultation rooms to ensure privacy and create a safer, more comfortable environment for sessions.
+   
+-  20% reported not seeing or receiving public health messages. according to the team session the information is always provided. Possibly, the focus or the attention to these HP messaging could be improved.
+
+
+
+- **improvement for children**
+
+   The recommendations mentioned more rooms prepared, well equipped for children, and/or play therapy rooms.
+   
+   Note: there are  children rooms in the Social services area in level 2. it was understood that  the improvement is for MH-patient-children. In the survey n = 12 children under 14 years were included.
+   
+   
+- Staff space:   Recommendations asked for improving the space for the MH team / service providers.  please consider the visual and noise insulation of the rooms. Voices from consultation rooms should never be heard in waiting areas. 
+
+ 
+- Assignment of specialist:
+  The team raised a concern about the reliance on short-term IMS staff for psychological care. Since many mental health cases require long-term follow-up, frequent staff turnover can disrupt continuity of care and affect patient trust. It is therefore recommended that short-term staff be assigned only mild to moderate cases, and that clear handover procedures be in place to ensure smooth transitions.
+  
+    
+
+- The MH team suggested installing a suggestion box at the CR to allow for anonymous and ongoing feedback.
+ 
+**Considerations on PESS procedure by the MH Team** 
+
+-	In several cases, patients were contacted without any prior notice or preparation. One patient mentioned that the unexpected call caused tension at home since her husband didn’t know she was attending counselling sessions with MSF. Another patient misunderstood the reason for the call and thought it was about getting medication or financial help. These examples show how important it is to clearly explain the purpose of the survey upfront and make sure it’s okay to continue with the conversation.
+
+- Before starting to prepare or roll out any survey, the MHAM should be informed in advance so can let the clinical team know. This way, staff can inform patients beforehand, avoid confusion, and identify anyone who might not be suitable to take part due to clinical or safety reasons. It might be useful to add this step to the survey **protocol**, as it wasn’t mentioned in the current one.
+
+- It was also suggested that certain groups of patients, like those with active psychotic symptoms or severe mental health conditions, should be excluded from the survey, as including them could not only affect the quality of the data but also cause them unnecessary distress or confusion.
+
+- The team also raised concerns about potential sampling bias as a large portion of survey respondents were active patients who had recently visited the CR. While their feedback is very valuable, it may not fully represent the experiences of patients whose care has ended or who discontinued services. If possible, future surveys should aim to include a balanced mix of active, closed, and cancelled cases to improve representativeness.
+
+
+
+
+# Conclusion
+
+The overall satisfaction and experience of patients receiving MH services at MH clinic remains positive and patients and caregivers report high levels of satisfaction. 
+Detail results of the PESS were presented and discussed with Mental Health MSF staff in order to develop concrete improvement plans and actions. 
+
+Recommendations on the MH setup are made and should lead to action plans. For next year's PESS procedure considerations should be respected in the protocol.
+
+The experience of receiving services by MSF is significantly impacted by context-related factors that remain highly out of the acute control of MSF. 
+
+
+MSF should continue to urge government actors, including military, to allow patients to access healthcare services without barriers in order to improve health-seeking behaviors of patients and their health status.
+
+Recommendation by the Epidemiologist: continue the good and essential medical work!
+
+
+# Appendices
+
+**Annex A: Patient remarks on personal helpfulness of MH sessions**
+
+7 Patients answered   why mental health sessions were not helpful for their mental health concern:
+
+  - I cannot determine whether I am receiving the treatment I need or if I am just accumulating my psychological problems without gaining any benefit.
+
+  - Until now, there has been no improvement in my son's behavior or actions.
+
+  - I felt that the specialist did not answer my questions. I felt that I needed a specialized psychiatrist.
+
+  - I used to follow up with a specialist named Zakia, and after her travel, I did not feel comfortable nor benefit from any other specialist.
+
+  - I feel that the specialist does not interact with me enough, and in every session, he asks me the same questions, so I do not feel that he is building upon previous events. Also, he does not follow any psychotherapy methodology; he only asks me questions for emotional venting purposes only.
+  
+  - My issue was related to my son. I tried to provide him a place in the orphan village, but we were unable to do so, and therefore I did not find the benefit I hoped for from the sessions. That does not mean I am dissatisfied with the institution's services, but I just was not able to achieve my goal.
+
+  - It was helpful until the month of April, then it became a psychological burden because I did not feel that the specialist believed me or understood me. I needed a specialist doctor for diagnosis, but the institution was not supportive in this regard. So, I went to a private doctor, and even after he diagnosed me, I felt that the specialist in your institution did not give me enough attention to complete the treatment, so I decided not to continue the sessions.
+
+
+
+**Annex B: Informed Verbal Consent - English**
+```{r consent_EN, echo = TRUE, eval = FALSE}
+Informed Verbal Consent -  English
+Please use the following script when asking a potential participant to participate in the Patient Experience & Satisfaction Survey. 
+
+Hello, my name is_______________ and I work for MSF.
+We are conducting a survey on the satisfaction of our patients with regards to the quality of the health care they received by MSF. The collected information will allow MSF to better plan and improve the health services based on the obtained results.
+We would like to ask you some questions on your perceptions and experience in this health facility. In particular, we will ask your opinion on the explanations and information you were given, on the communication skills of our staff and the respect for the patient, on comfort, cleanliness, and privacy, and some othe questions about your age, etc. The questionnaire should not take more than 30 minutes of your time. 
+All the answers you will provide will be strictly confidential and will not be shared with anyone else other than the team involved with this survey. We will analyse all the participant’s answers together with the aim of improving our services. Your name and the name of your family will not be included and we will not ask you any kind of identification data. No answer will be traceable to your person and will therefore be completely anonymous. 
+You are not obligated to complete this questionnaire, and your decision will have no consequences. However, your feedback is valuable to us, and we encourage you to participate if you feel comfortable. Your participation will be highly appreciated. (There will be no compensation for your participation.)
+If you accept to participate in this survey, we kindly ask you to answer all questions as honestly as possible. If you don’t want to answer some or any of the questions, it’s Ok just say “no answer”. You can feel free to answer all the questions and give us feedback as you really wish. We are not here to judge you or punish anyone. Your honest opinion will allow us to obtain a good understanding of the areas we need to improve in the services we provide to our patients.
+Thank you for your collaboration. Should you not understand any question, please do not hesitate to stop me and ask me to clarify the point. Should you decide to, you are entitled to stop answering at any point of the interview. 
+Do you have any questions? 
+Do you accept to participate? Can we start the questionnaire?
+
+
+```
+
+
+**Annex C: Informed Verbal Consent - Arabic**
+```{r consent_AR, echo = TRUE, eval = FALSE}
+الموافقة الشفهية المستنيرة - اللغة العربية
+يرجى استخدام النص التالي عند مطالبة أحد المشاركين المحتملين بالمشاركة في استبيان تجربة المريض ورضاه.
+مرحباً، اسمي ___________ وأنا أعمل مع منظمة أطباء بلا حدود.
+نحن نقوم بإجراء استبيان حول تجربة مرضانا ورضاهم فيما يتعلق بجودة الرعاية الصحية التي يتلقونها من قبل منظمة أطباء بلا حدود. ستسمح المعلومات المجمعة لمنظمة أطباء بلا حدود بالتخطيط بشكل أفضل وتحسين الخدمات الصحية بناءً على النتائج التي تم الحصول عليها.
+نود أن نطرح عليك بعض الأسئلة حول تصوراتك وتجربتك مع منظمة أطباء بلا حدود. وعلى وجه الخصوص، سنطلب رأيك في التوضيحات والمعلومات التي قُدمت لك، وحول مهارات التواصل لدى موظفينا واحترام المريض، وعن الراحة والنظافة والخصوصية، وبعض الأسئلة الأخرى حول عمرك ... إلخ. ينبغي أن يستغرق ذلك حوالي 15 دقيقة من وقتك.
+جميع الإجابات التي ستقدمها ستكون سرية للغاية ولن يتم مشاركتها مع أي شخص آخر غير الفريق المشارك في هذا الاستطلاع. سنقوم بتحليل جميع إجابات المشاركين معاً بهدف تحسين خدماتنا. لن يتم تضمين اسمك واسم عائلتك ولن نطلب منك أي نوع من البيانات التعريفية. لن يتم تتبع أي إجابة لشخصك، وبالتالي ستكون مجهولة المصدر تماماً.
+لا تحتاج إلى الإجابة على هذا الاستبيان إذا كنت تفضل عدم القيام بذلك، ولن يكون لذلك أي عواقب. لكننا نأمل أن تقبل المشاركة لأن وجهة نظرك وتجربتك الشخصية مهمة للغاية بالنسبة لنا. مشاركتك ستكون محل تقدير كبير. 
+إذا وافقت على المشاركة في هذا الاستطلاع، فنطلب منك الإجابة على جميع الأسئلة بأكبر قدر ممكن من الصدق.  إن لن لم ترغب في الإجابة عن أي من الأسئلة، بإمكانك أن تقول:" لا إجابة" ولا تتردد في الإجابة على جميع الأسئلة، وقم بتزويدنا بالتغذية الراجعة كما يحلو لك. نحن لسنا هنا للحكم عليك أو معاقبة أي شخص. إن رأيك الصادق سيسمح لنا بالحصول على فهم جيد للمجالات التي نحتاج إلى تحسينها في الخدمات التي نقدمها لمرضانا.
+شكراً لك على تعاونك. إذا لم تفهم أي سؤال، من فضلك لا تتردد في إيقافي وطلب مني توضيح هذه النقطة. إذا قررت ذلك، يحق لك التوقف عن الإجابة في أي وقت من المقابلة.
+هل لديك أسئلة؟ هل توافق على المشاركة؟ هل يمكننا أن نبدأ بالاستبيان؟
+
+
+
+
+```
+
+
+**ANNEX D: Simple Random Sampling Code for Patient Experience and Satisfaction Survey**
+```{r random_sample, echo = TRUE, eval = FALSE}
+#==========================================================================
+# 
+# RANDOM SAMPLING FOR PATIENT SATISFACTION SURVEY 2025
+# 
+#==========================================================================
+
+# IN THIS VERSION WE ONLY USE DATA FROM MHPSSC
+
+# Assign seed number to reproduce original randomized sample (Note: create new seed number for each new randomization)
+set.seed(25001)
+
+# Install and load required packages
+if (!requireNamespace("pacman", quietly = TRUE)) {
+  install.packages("pacman")}
+library(pacman)
+
+
+# Install and load required packages to run script
+pacman::p_load(dplyr,         # Manipulate data
+               lubridate)     # Work with dates
+              
+              
+#==========================================================================
+
+# Import list of patients
+file_paths <- list(
+
+  "mh" = "C:/Users/msfe-jerusalem-epi/OneDrive - MSF/1_Epidemiology/3_Projects/11_PESS_2025/2_Data/mh_ce_psy.csv")
+
+
+mh_raw <- read.csv(file_paths[["mh"]])
+
+
+# Clean the patient list for MH
+mh_edit <- mh_raw %>%
+  select(Consultation.date, Patient.ID, first.name, phone, MH.Service.Type, indiv.partner.grp) %>%
+  mutate(
+    name = first.name,
+    #telephone = phone,
+    Comment = "                           "   ,
+    date_dmy = lubridate::dmy(Consultation.date)  # Convert Consultation.date to dmy format
+  ) %>%
+  select(-Consultation.date) %>%
+  rename(
+    date = date_dmy,  # Rename date_dmy to date
+    id = Patient.ID
+  ) %>%
+  select(id, name, phone, date, Comment, MH.Service.Type, indiv.partner.grp)
+
+
+# Combine to create master patient list to sample from
+patient_list <-   mh_edit
+
+
+#Filter patient list to include patients with a visit in May 2025
+patient_list_edit <- patient_list %>%
+  filter(year(date) == 2025, month(date) == 5)
+
+
+patient_list_edit <- patient_list_edit %>%
+  distinct(id, .keep_all = TRUE)
+
+
+#==========================================================================
+
+# Set required sample size
+num_patients <- 125  
+
+
+# Randomly select a sample of patients
+random_sample <- patient_list_edit %>%
+  sample_n(size = num_patients, replace = FALSE)
+
+#==========================================================================
+
+# Save CSV file of random sample 
+write.csv(random_sample, file = "random_sample.csv", row.names = FALSE)
+
+#==========================================================================
+
+```
+
+
+
+
+**Annex E: Patients' comments or recommendations to improve services**
+```{r patients_recomms_AR, echo = TRUE, eval = FALSE}
+	التعليقات والتوصيات
+1	قمت بطلب الخدمة الاجتماعية وافضل لو كانت هناك مساعدة بخصوص طفلي الذي يعاني من فرط الحركة وتشتت الانتباه .
+2	"قمت بالتوصية باطباء بلا حدود للكثير من معارفي 
+ارجو توفير مروحة في الغرفة 
+ان تكون الغرفة اكثر خصوصية وعازلة للصوت بحيث لا يخرج الصوت الى الخارج"
+3	"اقوم بتوصية الاطباء للجميع 
+طلب ورشات تفريغ نفسي 
+توفير يافطة لموقع المكتب تكون واضحة"
+4	"اقوم بمشاركة توصياتي على الفيس بوك لاي شخص يحتاج الى المساعده 
+افضل لو تقومو بسؤالنا هل نحن مرتاحين مع الاخصائي الذي يقابلنا ام نفضل تغييره"
+5	"ان امكن اتاحة خيار اجراء المقابلات في مكان خارج المكتب 
+تحسين التكييف في غرف المقابلات 
+تعزيز الخصوصيه في الغرف لان الصوت يمكن سماعه بالخارج"
+6	لحد الان لم اصل الى نتيجة في جلساتي العلاجية
+7	انا اقوم بنصح اي شخص تعرض لتجربة صحية او نفسية صعبه ان يتوجه لطلب الدعم النفسي , ليس هناك عيب في ذلك
+8	كل تجربتي كانت ايجابية وانا سعيدة بالخدمة التي تلقيتها .
+9	تقديم مطويات فيها ارقام التواصل او كرت الموظف في حال احتجنا لاخبار احد عن اعمال المنظمة حتى يستطيعو الوصول اليكم
+10	وجود تجارب نجاح سابقة في العلاج بحيث تكون مصدر الهام
+11	احب لو ان المؤسسة تقم بالتعريف عن نفسها وخدماتها بشكل اوسع في المجتمع خصوصا لفئة الاسرى والجرحى الذين بحاجة ماسة الى الدعم النفسي لكن لا يعلمون بوجود المسؤسسه ولا خدماتها
+12	تجربة ايجابية بامتياز الشكر الجزيل لكم
+13	ارجوا اطالة وقت الجلسة
+14	كانت تجربتي مع الاطباء مهنية واحترافية للغايه هناك قدر عالي من النظام والترتيب والمهنية , انا ممتنة بشدة اني شاركت معكم
+15	اضافة معالج نفسي بخلفية طبية
+16	"انا لا زلت بحاجة لعلاج نفسي ولكن اخبروني بالمكتب انني استنفذت الحد الاقصى من الجلسات التي يمكن تقديمها انا الان اعاني بشدة لكنني لن اعود مجددا لطلب المساعدة منكم بعد هذا الرفض . 
+
+لقد كنت اتابع مع اخصائية معينة وقد سافرت وطلبت اخصائي اخر بالاسم وكنت ارغب باستكمال العلاج معه لكن تم رفض طلبي وتم تعيين اخصائية اخرى , لم ارتح بالتعامل معها وذلك جعلني انغلق على نفسي وافضل عد متابعة العلاج"
+17	لا اوصي بالاطباء حرصا على خصوصيتي وليس لانهم سيئين
+18	لا اوصي بخدمات اطباء بلا حدود بسبب حرصي على خصوصيتي
+19	"تجربتي كانت رائعة جدا مع المؤسسة واحمد الله انني شاركت معكم لانني وجدت فائدة عظيمة
+اتمنى ان يكون لكم افرع في كل مكان 
+اشكركم بصدق على خدماتكم"
+20	"زيادة الكادر حتى لا تكون الجلسات متباعده ويمكن استيعاب مستفيدين اكثر , وجود مكاتب باماكن اكثر (افرع)
+عمل حملات توعية بوجود المؤسسة وخدماتها"
+
+
+```
+ translated into English
+```{r patients_recomms_EN, echo = TRUE, eval = FALSE}
+	Comments and recommendations
+1	I requested social services, and I would prefer if there were assistance regarding my child who suffers from hyperactivity and attention deficit.
+
+2	I have recommended Doctors Without Borders to many of my acquaintances.
+Please provide a fan in the room.
+That the room be more private and soundproof so that the sound does not go outside.
+
+3	I recommend the doctors to everyone.
+Requested psychological workshops for ventilation,
+Provide a clear sign for the office location.
+
+4	I share my recommendations on Facebook with anyone who needs help.I would prefer if you would ask us whether we are comfortable with the specialist who meets with us or if we prefer to change them.
+
+5	If possible, provide the option to conduct interviews in a location outside the office,Improve the air conditioning in the consultation rooms.Enhance privacy in the rooms because the sound can be heard from outside.
+
+6	Until now, I have not reached a result in my therapy sessions.
+
+
+7	I advise anyone who has experienced a difficult health or psychological experience to seek psychological support; there is no shame in that.
+
+8	My entire experience was positive, and I am happy with the service I received.
+
+9	Providing leaflets containing contact numbers or the employee’s card in case we need to inform someone about the organization’s work so that they can reach you.
+
+10	Having previous successful treatment experiences to serve as a source of inspiration.
+
+11	I would love for the organization to introduce itself and its services more broadly in the community, especially to the group of prisoners and wounded who are in urgent need of psychological support but do not know about the organization or its services.
+
+12	A highly positive experience—many thanks to you.
+
+13	I request to extend the session time.
+
+14	My experience with the doctors was extremely professional; there was a high level of organization, order, and professionalism. I am deeply grateful that I participated with you.
+
+15	Addition of a psychologist with a medical background.
+
+16	I still need psychological treatment, but they told me at the office that I have exhausted the maximum number of sessions that can be provided. I am now suffering greatly, but I will not come back again to request help from you after this refusal.                                                                                                                               I had been following with a specific specialist who traveled, and I requested another specialist by name and wanted to continue treatment with them, but my request was refused and another specialist was assigned. I was not comfortable dealing with her, and that made me close off to myself, and I preferred not to continue treatment.
+
+17	I do not recommend the doctors out of concern for my privacy, not because they are bad.
+
+18	I do not recommend the services of Doctors Without Borders because I care about my privacy
+
+19	My experience with the organization was very wonderful, and I praise God that I participated with you because I found great benefit. I hope that you have branches everywhere. I sincerely thank you for your services.
+
+20	Increase the staff so that sessions are not spaced out and more beneficiaries can be accommodated; have offices in more locations (branches); run awareness campaigns about the existence of the organization and its services.
+
+
+```
